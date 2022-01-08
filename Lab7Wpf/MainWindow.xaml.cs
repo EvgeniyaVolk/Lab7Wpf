@@ -51,5 +51,28 @@ namespace Lab7Wpf
                 File.WriteAllText(saveFileDialog.FileName, myText.Text);
             }
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string fontName = (sender as ComboBox).SelectedItem as string;
+            if (myText != null)
+            {
+                myText.FontFamily = new FontFamily(fontName);
+            }
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            string fontName = (sender as ComboBox).SelectedItem as string;
+
+            if (fontName != null && fontName != "16" && fontName != "12")
+            {
+                myText.FontSize = 14;
+            }
+            if (fontName != null && fontName != "16" && fontName != "14")
+            {
+                myText.FontSize = 12;
+            }
+        }
     }
 }
