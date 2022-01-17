@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
     <Window.Resources>
-       
+
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="local:MyCommands.Exit" Executed="ExitExecuted"/>
@@ -48,17 +48,16 @@
             <ComboBox x:Name="styleBox" Grid.Row="0" Style="{DynamicResource ComboBoxStyle}"/>
             <ToolBarTray Grid.Row="1" Style="{DynamicResource WindowStyle}">
                 <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}">
-                    <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="200"  
-                              ItemsSource="{StaticResource font}" 
+                    <ComboBox Margin="0,5,0,0" Padding="5" SelectedIndex="0" Width="200"  
+                              ItemsSource="{StaticResource font}"
                               SelectionChanged="ComboBox_SelectionChanged"
-                              Style="{DynamicResource ComboBoxStyle}">
-                     
+                              Style="{DynamicResource ComboBoxStyle}" VerticalAlignment="Top">
                     </ComboBox>
-                    <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50" 
-                              ItemsSource="{StaticResource size}" 
+
+                    <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50"
+                              ItemsSource="{StaticResource size}"
                               SelectionChanged="ComboBox_SelectionChanged_1" 
                               Style="{DynamicResource ComboBoxStyle}">
-                       
                     </ComboBox>
                 </ToolBar>
                 <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}">
@@ -82,11 +81,13 @@
                     </StackPanel>
                 </ToolBar>
             </ToolBarTray>
-            <TextBox x:Name="myText" Grid.Row="2" Margin="5" Padding="5" FontSize="16" FontFamily="Arial" 
+            <TextBox x:Name="myText" Grid.Row="2" Margin="5" Padding="5" 
+                     FontFamily="{Binding ElementName=font, Path=SelectedItem}" 
+                      FontSize="{Binding ElementName=size, Path=SelectedItem}"
                      TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
                      Style="{DynamicResource TextBoxJustiflyStyle}">
             </TextBox>
         </Grid>
     </DockPanel>
-    
+
 </Window>
